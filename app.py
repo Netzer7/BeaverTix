@@ -22,7 +22,7 @@ def load_user(user_id):
 
 @app.route("/")
 def homepage():
-    return render_template("test.html")
+    return render_template("home.j2")
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -71,7 +71,7 @@ def logout():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html')                    
+    return render_template('dashboard.j2', user=current_user)                    
 
 if __name__ == "__main__":
     with app.app_context():
